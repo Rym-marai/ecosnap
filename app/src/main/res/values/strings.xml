@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">EcoSnap</string>
+    <string name="tagline">Discover. Identify. Protect.</string>
+    <!--  Auth  -->
+    <string name="email_hint">Email address</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm password</string>
+    <string name="full_name_hint">Full name</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="continue_google">Continue with Google</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="no_account">No account? Register here</string>
+    <string name="have_account">Already have an account? Sign in</string>
+    <!--  Home  -->
+    <string name="greeting">Good morning,</string>
+    <string name="user_name">Explorer</string>
+    <string name="home_banner_sub">Ready to discover?</string>
+    <string name="home_banner_title">Snap a Species</string>
+    <string name="open_camera">Capture Photo</string>
+    <string name="search_species_hint">Search by species name…</string>
+    <string name="search_btn">Search</string>
+    <string name="quick_access">Quick Access</string>
+    <string name="community">Community</string>
+    <string name="explore_map">Explore Map</string>
+    <string name="my_journal">My Journal</string>
+    <!--  Species Detail  -->
+    <string name="species_detail_title">Species Detail</string>
+    <string name="save_to_journal">Save to Journal</string>
+    <string name="conservation_status">Conservation Status</string>
+    <string name="habitat">Habitat</string>
+    <string name="description">Description</string>
+    <string name="ecological_role">Ecological Role</string>
+    <string name="threats">Threats</string>
+    <string name="ecopoints_earned">+25 EcoPoints Earned!</string>
+    <!--  Journal  -->
+    <string name="journal_title">My Journal</string>
+    <string name="no_sightings">No sightings saved yet.\nUse the camera to identify species!</string>
+    <!--  Feed  -->
+    <string name="feed_title">Community Feed</string>
+    <string name="like">Like</string>
+    <string name="save">Save</string>
+    <!--  Map  -->
+    <string name="map_title">Explore Map</string>
+    <string name="map_subtitle">Nearby biodiversity sightings in Tunisia</string>
+    <!--  Profile  -->
+    <string name="profile_title">Profile</string>
+    <string name="eco_points">EcoPoints</string>
+    <string name="badges">Badges Earned</string>
+    <string name="total_sightings">Total Sightings</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <!--  Nav  -->
+    <string name="nav_home">Home</string>
+    <string name="nav_journal">Journal</string>
+    <string name="nav_feed">Feed</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_snap">Snap</string>
+</resources>

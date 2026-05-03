@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "commonName": "Mediterranean Chameleon",
+    "scientificName": "Chamaeleo chamaeleon",
+    "emoji": "🦎",
+    "conservationStatus": "VU",
+    "description": "A slow-moving lizard known for its remarkable color-changing ability. Found in northern Tunisia in shrubby coastal areas and gardens.",
+    "habitat": "Coastal Mediterranean scrubland, gardens, and dry open forests in northern Tunisia.",
+    "ecologicalRole": "Controls insect populations through predation. Acts as prey for larger raptors and snakes.",
+    "threats": "Habitat loss due to urbanization, illegal pet trade, and use of pesticides.",
+    "ecoPoints": 25
+  },
+  {
+    "id": 2,
+    "commonName": "Barbary Falcon",
+    "scientificName": "Falco pelegrinoides",
+    "emoji": "🦅",
+    "conservationStatus": "LC",
+    "description": "A medium-sized falcon closely related to the Peregrine Falcon. Known for its speed and agility in flight.",
+    "habitat": "Rocky cliffs, coastal areas, and desert edges across North Africa.",
+    "ecologicalRole": "Apex predator controlling populations of pigeons and small birds.",
+    "threats": "Nest disturbance, hunting, and reduction in prey due to pesticide use.",
+    "ecoPoints": 20
+  },
+  {
+    "id": 3,
+    "commonName": "Saharan Horned Viper",
+    "scientificName": "Cerastes cerastes",
+    "emoji": "🐍",
+    "conservationStatus": "LC",
+    "description": "A venomous viper adapted to sandy desert environments. Recognized by the small horn above each eye.",
+    "habitat": "Sandy and gravelly deserts of the Sahara and surrounding areas.",
+    "ecologicalRole": "Controls rodent populations. Important prey for eagles and monitor lizards.",
+    "threats": "Persecution by humans, illegal wildlife trade, and habitat degradation.",
+    "ecoPoints": 30
+  },
+  {
+    "id": 4,
+    "commonName": "Aleppo Pine",
+    "scientificName": "Pinus halepensis",
+    "emoji": "🌲",
+    "conservationStatus": "LC",
+    "description": "A resilient pine tree native to the Mediterranean region. Widely planted in Tunisia for reforestation.",
+    "habitat": "Rocky hillsides, dry Mediterranean forests, and coastal areas.",
+    "ecologicalRole": "Provides habitat and food for birds and insects. Stabilizes rocky soils and prevents erosion.",
+    "threats": "Forest fires, climate change, and bark beetle infestations.",
+    "ecoPoints": 15
+  },
+  {
+    "id": 5,
+    "commonName": "Slender-horned Gazelle",
+    "scientificName": "Gazella leptoceros",
+    "emoji": "🦌",
+    "conservationStatus": "EN",
+    "description": "A critically threatened gazelle of the Saharan region. Extremely fast and adapted to sandy terrain.",
+    "habitat": "Flat sandy deserts and open sandy plains of the Sahara.",
+    "ecologicalRole": "Key herbivore maintaining desert vegetation structure. Prey for cheetahs and wolves.",
+    "threats": "Illegal hunting, habitat encroachment, and competition with livestock.",
+    "ecoPoints": 50
+  },
+  {
+    "id": 6,
+    "commonName": "Asphodel Plant",
+    "scientificName": "Asphodelus microcarpus",
+    "emoji": "🌸",
+    "conservationStatus": "LC",
+    "description": "A flowering plant common across Tunisian hillsides. Blooms white or pink in spring.",
+    "habitat": "Garrigue, rocky hillsides, olive groves, and open grasslands.",
+    "ecologicalRole": "Provides nectar for pollinators. Pioneer species after fires, helping ecosystems recover.",
+    "threats": "Overgrazing by livestock and invasive plant species.",
+    "ecoPoints": 10
+  },
+  {
+    "id": 7,
+    "commonName": "Atlas Cedar",
+    "scientificName": "Cedrus atlantica",
+    "emoji": "🌳",
+    "conservationStatus": "VU",
+    "description": "A majestic conifer native to the Atlas Mountains in North Africa. Can live for centuries.",
+    "habitat": "Mountainous forests of Aïn Draham and the Kroumirie region in northwest Tunisia.",
+    "ecologicalRole": "Supports rich biodiversity including rare birds and mammals. Regulates water cycles.",
+    "threats": "Climate change-driven drought, unsustainable logging, and overgrazing.",
+    "ecoPoints": 40
+  }
+]
