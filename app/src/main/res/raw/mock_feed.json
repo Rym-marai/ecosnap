@@ -13,7 +13,9 @@
     "caption": "Found near Cap Bon! First sighting this season ",
     "likes": 18,
     "isLiked": false,
-    "isSaved": false
+    "isSaved": false,
+    "commentCount": 3,
+    "userBadgeLevel": 2
   },
   {
     "id": 2,
@@ -29,7 +31,9 @@
     "caption": "Circling above Belvédère Park again — magnificent bird ",
     "likes": 34,
     "isLiked": true,
-    "isSaved": false
+    "isSaved": false,
+    "commentCount": 7,
+    "userBadgeLevel": 3
   },
   {
     "id": 3,
@@ -45,7 +49,9 @@
     "caption": "Spring is here! Asphodel blooming near the Roman temple ",
     "likes": 22,
     "isLiked": false,
-    "isSaved": true
+    "isSaved": true,
+    "commentCount": 2,
+    "userBadgeLevel": 1
   },
   {
     "id": 5,
@@ -61,7 +67,9 @@
     "caption": "Spent the day in the Kroumirie forest. The Atlas Cedars are stunning ",
     "likes": 45,
     "isLiked": true,
-    "isSaved": true
+    "isSaved": true,
+    "commentCount": 5,
+    "userBadgeLevel": 3
   },
   {
     "id": 6,
@@ -77,6 +85,10 @@
     "caption": "Early morning desert walk — spotted this viper at sunrise. Nature is wild! ",
     "likes": 61,
     "isLiked": false,
-    "isSaved": false
+    "isSaved": false,
+    "commentCount": 9,
+    "userBadgeLevel": 2
   }
 ]
+
+

@@ -16,13 +16,26 @@
         android:padding="12dp">
 
         <!-- User Profile Photo Image -->
-        <ImageView
-            android:id="@+id/ivUserAvatar"
+        <FrameLayout
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:scaleType="centerCrop"
-            android:background="@color/green_light"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp">
+
+            <ImageView
+                android:id="@+id/ivUserAvatar"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:scaleType="centerCrop"
+                android:background="@color/green_light" />
+
+            <!-- User Badge -->
+            <ImageView
+                android:id="@+id/ivUserBadge"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="bottom|end"
+                android:contentDescription="User badge" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -107,17 +120,6 @@
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="0dp"
-            app:icon="@android:drawable/btn_star_big_off"
-            app:iconPadding="0dp"
-            app:iconSize="28dp"
-            app:iconTint="@android:color/black" />
-
     </LinearLayout>
 
     <View
@@ -126,5 +128,63 @@
         android:background="@color/divider"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLike"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Like"
+            android:textSize="12sp"
+            app:icon="@android:drawable/ic_menu_view"
+            app:iconSize="20dp"
+            app:iconTint="@android:color/darker_gray" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnComment"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Comment"
+            android:textSize="12sp"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconSize="20dp"
+            app:iconTint="@android:color/darker_gray" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Share"
+            android:textSize="12sp"
+            app:icon="@android:drawable/ic_menu_share"
+            app:iconSize="20dp"
+            app:iconTint="@android:color/darker_gray" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"
+            android:textSize="12sp"
+            app:icon="@android:drawable/ic_menu_add"
+            app:iconSize="20dp"
+            app:iconTint="@android:color/darker_gray" />
+
+    </LinearLayout>
 
 </LinearLayout>

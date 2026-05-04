@@ -1,6 +1,12 @@
 package com.example.myapplication;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "feed_entries")
 public class FeedEntry {
+    @PrimaryKey
     public int id;
     public String userId;
     public String userInitials;
@@ -15,4 +21,9 @@ public class FeedEntry {
     public int likes;
     public boolean isLiked;
     public boolean isSaved;
+    public int commentCount;
+    public int userBadgeLevel; // 0 = no badge, 1 = bronze, 2 = silver, 3 = gold
+
+    @Ignore
+    public boolean isExpanded; // for UI state
 }
