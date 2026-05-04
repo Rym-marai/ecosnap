@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,9 +17,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
     private final List<FeedEntry> entries;
     private OnSaveClickListener onSaveClickListener;
+    private OnCommentClickListener onCommentClickListener;
 
     public interface OnSaveClickListener {
         void onSaveClick(FeedEntry entry, FeedViewHolder holder);
+    }
+
+    public interface OnCommentClickListener {
+        void onCommentClick(FeedEntry entry, FeedViewHolder holder);
     }
 
     public FeedAdapter(List<FeedEntry> entries) {
@@ -29,6 +33,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
     public void setOnSaveClickListener(OnSaveClickListener listener) {
         this.onSaveClickListener = listener;
+    }
+
+    public void setOnCommentClickListener(OnCommentClickListener listener) {
+        this.onCommentClickListener = listener;
     }
 
     @NonNull
@@ -43,7 +51,15 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         FeedEntry entry = entries.get(position);
         Context context = holder.itemView.getContext();
 
-        holder.tvUsername.setText(entry.userName);
+        // Set username with badge title if available
+        if (entry.userBadgeLevel > 0 && entry.userBadgeTitle != null) {
+            holder.tvUsername.setText(entry.userName + " 🏅 " + entry.userBadgeTitle);
+            holder.tvUsername.setTextColor(ContextCompat.getColor(context, R.color.green_primary));
+        } else {
+            holder.tvUsername.setText(entry.userName);
+            holder.tvUsername.setTextColor(ContextCompat.getColor(context, R.color.text_primary));
+        }
+
         holder.tvUserLocation.setText(entry.location + " · " + entry.timeAgo);
         holder.tvSpeciesName.setText(entry.speciesName);
         holder.tvCaption.setText(entry.caption);
@@ -56,8 +72,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
             holder.ivUserAvatar.setImageResource(profileResId);
         }
 
-        // Load User Badge
-        loadUserBadge(holder.ivUserBadge, entry.userBadgeLevel, context);
+        // Hide badge from avatar (no longer needed)
+        if (holder.ivUserBadge != null) {
+            holder.ivUserBadge.setVisibility(View.GONE);
+        }
 
         // Load Species Image
         if (entry.speciesName != null) {
@@ -107,7 +125,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         // Comment Button
         holder.btnComment.setText(entry.commentCount > 0 ? entry.commentCount + "" : "Comment");
         holder.btnComment.setOnClickListener(v -> {
-            Toast.makeText(context, "Comments feature coming soon!", Toast.LENGTH_SHORT).show();
+            if (onCommentClickListener != null) {
+                onCommentClickListener.onCommentClick(entry, holder);
+            }
         });
 
         // Share Button
@@ -158,23 +178,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
     }
 
     private void loadUserBadge(ImageView badgeView, int badgeLevel, Context context) {
-        int badgeResId = 0;
-        switch (badgeLevel) {
-            case 1: // Bronze
-                badgeResId = android.R.drawable.ic_dialog_info;
-                break;
-            case 2: // Silver
-                badgeResId = android.R.drawable.ic_dialog_info;
-                break;
-            case 3: // Gold
-                badgeResId = android.R.drawable.ic_dialog_info;
-                break;
-            default:
-                badgeView.setVisibility(View.GONE);
-                return;
-        }
-        badgeView.setVisibility(View.VISIBLE);
-        badgeView.setImageResource(badgeResId);
+        // Badge is now shown next to username instead
+        badgeView.setVisibility(View.GONE);
     }
 
     @Override

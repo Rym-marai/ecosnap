@@ -3,6 +3,8 @@ package com.example.myapplication;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(tableName = "feed_entries")
 public class FeedEntry {
@@ -23,7 +25,10 @@ public class FeedEntry {
     public boolean isSaved;
     public int commentCount;
     public int userBadgeLevel; // 0 = no badge, 1 = bronze, 2 = silver, 3 = gold
+    public String userBadgeTitle; // Last unlocked badge title (e.g., "Rare Find", "Mapper")
 
     @Ignore
     public boolean isExpanded; // for UI state
+    @Ignore
+    public List<FeedComment> comments = new ArrayList<>(); // For storing comments
 }

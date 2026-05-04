@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class FeedFragment extends Fragment {
     private FeedAdapter adapter;
@@ -40,6 +39,9 @@ public class FeedFragment extends Fragment {
         spinnerStatusFilter = view.findViewById(R.id.spinnerStatusFilter);
         btnResetFilter = view.findViewById(R.id.btnResetFilter);
 
+        // Initialize default categories
+        initializeDefaultCategories();
+
         if (rvFeed != null && getContext() != null) {
             rvFeed.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -48,9 +50,10 @@ public class FeedFragment extends Fragment {
                 // Ensure each entry has proper default values
                 for (FeedEntry entry : allEntries) {
                     if (entry.commentCount == 0) entry.commentCount = 0;
-                    if (entry.userBadgeLevel == 0) entry.userBadgeLevel = (entry.id % 3); // distribute badges
+                    if (entry.userBadgeLevel == 0) entry.userBadgeLevel = 0;
+                    if (entry.comments == null) entry.comments = new ArrayList<>();
                 }
-
+                
                 filteredEntries = new ArrayList<>(allEntries);
                 adapter = new FeedAdapter(filteredEntries);
                 rvFeed.setAdapter(adapter);
@@ -58,6 +61,11 @@ public class FeedFragment extends Fragment {
                 // Set up save listener
                 adapter.setOnSaveClickListener((entry, holder) -> {
                     showSaveDialog(entry, holder);
+                });
+
+                // Set up comment listener
+                adapter.setOnCommentClickListener((entry, holder) -> {
+                    showCommentDialog(entry, holder);
                 });
 
                 // Setup filter spinners
@@ -77,6 +85,14 @@ public class FeedFragment extends Fragment {
         }
 
         return view;
+    }
+
+    private void initializeDefaultCategories() {
+        categories.clear();
+        categories.add(new SaveCategory("Animals", "#90EE90"));
+        categories.add(new SaveCategory("Plants", "#FFB6C1"));
+        categories.add(new SaveCategory("Fungi", "#DEB887"));
+        categories.add(new SaveCategory("Others", "#87CEEB"));
     }
 
     private void setupFilterSpinners() {
@@ -140,9 +156,9 @@ public class FeedFragment extends Fragment {
         filteredEntries.clear();
 
         for (FeedEntry entry : allEntries) {
-            boolean matchesSpecies = selectedSpecies.equals("All Species") ||
+            boolean matchesSpecies = selectedSpecies.equals("All Species") || 
                     (entry.speciesName != null && entry.speciesName.equals(selectedSpecies));
-            boolean matchesStatus = selectedStatus.equals("All Status") ||
+            boolean matchesStatus = selectedStatus.equals("All Status") || 
                     (entry.conservationStatus != null && entry.conservationStatus.toUpperCase().equals(selectedStatus));
 
             if (matchesSpecies && matchesStatus) {
@@ -154,13 +170,12 @@ public class FeedFragment extends Fragment {
     }
 
     private void showSaveDialog(FeedEntry entry, FeedAdapter.FeedViewHolder holder) {
-        SaveDialog saveDialog = new SaveDialog(getContext(), entry.id, categories,
+        SaveDialog saveDialog = new SaveDialog(getContext(), entry.id, categories, 
             new SaveDialog.OnSaveListener() {
                 @Override
                 public void onSave(SaveCategory category) {
                     entry.isSaved = true;
                     Toast.makeText(getContext(), "Saved to \"" + category.name + "\"", Toast.LENGTH_SHORT).show();
-                    // Here you would normally save to a database
                     adapter.notifyDataSetChanged();
                 }
 
@@ -175,5 +190,22 @@ public class FeedFragment extends Fragment {
             });
 
         saveDialog.show();
+    }
+
+    private void showCommentDialog(FeedEntry entry, FeedAdapter.FeedViewHolder holder) {
+        if (entry.comments == null) {
+            entry.comments = new ArrayList<>();
+        }
+
+        CommentDialog commentDialog = new CommentDialog(getContext(), entry.id, entry.comments,
+            new CommentDialog.OnCommentListener() {
+                @Override
+                public void onCommentAdded(FeedComment comment) {
+                    entry.commentCount++;
+                    adapter.notifyDataSetChanged();
+                }
+            });
+
+        commentDialog.show();
     }
 }

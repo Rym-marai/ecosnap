@@ -15,7 +15,8 @@
     "isLiked": false,
     "isSaved": false,
     "commentCount": 3,
-    "userBadgeLevel": 2
+    "userBadgeLevel": 2,
+    "userBadgeTitle": "Explorer"
   },
   {
     "id": 2,
@@ -33,7 +34,8 @@
     "isLiked": true,
     "isSaved": false,
     "commentCount": 7,
-    "userBadgeLevel": 3
+    "userBadgeLevel": 3,
+    "userBadgeTitle": "Rare Find"
   },
   {
     "id": 3,
@@ -51,7 +53,8 @@
     "isLiked": false,
     "isSaved": true,
     "commentCount": 2,
-    "userBadgeLevel": 1
+    "userBadgeLevel": 1,
+    "userBadgeTitle": "First Snap"
   },
   {
     "id": 5,
@@ -69,7 +72,8 @@
     "isLiked": true,
     "isSaved": true,
     "commentCount": 5,
-    "userBadgeLevel": 3
+    "userBadgeLevel": 3,
+    "userBadgeTitle": "Mapper"
   },
   {
     "id": 6,
@@ -87,8 +91,11 @@
     "isLiked": false,
     "isSaved": false,
     "commentCount": 9,
-    "userBadgeLevel": 2
+    "userBadgeLevel": 2,
+    "userBadgeTitle": "Explorer"
   }
 ]
+
+
 
 
