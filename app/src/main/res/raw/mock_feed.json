@@ -17,7 +17,12 @@
     "commentCount": 3,
     "userBadgeLevel": 2,
     "userBadgeTitle": "Explorer",
-    "category": "Animals"
+    "category": "Animals",
+    "comments": [
+      {"id": 1, "feedEntryId": 1, "userName": "Sarra K.", "userInitials": "SK", "text": "Beautiful find! Never seen one in that area before", "createdAt": 1234567890},
+      {"id": 2, "feedEntryId": 1, "userName": "Leila B.", "userInitials": "LB", "text": "What time of day was this taken?", "createdAt": 1234567891},
+      {"id": 3, "feedEntryId": 1, "userName": "Karim R.", "userInitials": "KR", "text": "The colors in this photo are amazing!", "createdAt": 1234567892}
+    ]
   },
   {
     "id": 2,
@@ -37,7 +42,16 @@
     "commentCount": 7,
     "userBadgeLevel": 3,
     "userBadgeTitle": "Rare Find",
-    "category": "Animals"
+    "category": "Animals",
+    "comments": [
+      {"id": 4, "feedEntryId": 2, "userName": "Mohamed A.", "userInitials": "MA", "text": "Incredible shot!", "createdAt": 1234567893},
+      {"id": 5, "feedEntryId": 2, "userName": "Amira T.", "userInitials": "AT", "text": "How often do you see them there?", "createdAt": 1234567894},
+      {"id": 6, "feedEntryId": 2, "userName": "Leila B.", "userInitials": "LB", "text": "Such a rare opportunity to photograph one", "createdAt": 1234567895},
+      {"id": 7, "feedEntryId": 2, "userName": "Karim R.", "userInitials": "KR", "text": "This is amazing Sarra!", "createdAt": 1234567896},
+      {"id": 8, "feedEntryId": 2, "userName": "Hassan M.", "userInitials": "HM", "text": "Where exactly in Belvédère?", "createdAt": 1234567897},
+      {"id": 9, "feedEntryId": 2, "userName": "Fatima Z.", "userInitials": "FZ", "text": "Best capture this year!", "createdAt": 1234567898},
+      {"id": 10, "feedEntryId": 2, "userName": "Noor S.", "userInitials": "NS", "text": "Please teach me your photography tips", "createdAt": 1234567899}
+    ]
   },
   {
     "id": 3,
@@ -57,7 +71,11 @@
     "commentCount": 2,
     "userBadgeLevel": 1,
     "userBadgeTitle": "First Snap",
-    "category": "Plants"
+    "category": "Plants",
+    "comments": [
+      {"id": 11, "feedEntryId": 3, "userName": "Sarra K.", "userInitials": "SK", "text": "So beautiful! Spring is finally here", "createdAt": 1234567900},
+      {"id": 12, "feedEntryId": 3, "userName": "Karim R.", "userInitials": "KR", "text": "The Roman temple backdrop is perfect", "createdAt": 1234567901}
+    ]
   },
   {
     "id": 5,
@@ -77,7 +95,14 @@
     "commentCount": 5,
     "userBadgeLevel": 3,
     "userBadgeTitle": "Mapper",
-    "category": "Plants"
+    "category": "Plants",
+    "comments": [
+      {"id": 13, "feedEntryId": 5, "userName": "Mohamed A.", "userInitials": "MA", "text": "I want to visit this place!", "createdAt": 1234567902},
+      {"id": 14, "feedEntryId": 5, "userName": "Leila B.", "userInitials": "LB", "text": "The forest looks magical", "createdAt": 1234567903},
+      {"id": 15, "feedEntryId": 5, "userName": "Amira T.", "userInitials": "AT", "text": "How old are these cedars?", "createdAt": 1234567904},
+      {"id": 16, "feedEntryId": 5, "userName": "Sarra K.", "userInitials": "SK", "text": "Conservation efforts needed here", "createdAt": 1234567905},
+      {"id": 17, "feedEntryId": 5, "userName": "Hassan M.", "userInitials": "HM", "text": "Best exploration post yet!", "createdAt": 1234567906}
+    ]
   },
   {
     "id": 6,
@@ -97,9 +122,22 @@
     "commentCount": 9,
     "userBadgeLevel": 2,
     "userBadgeTitle": "Explorer",
-    "category": "Animals"
+    "category": "Animals",
+    "comments": [
+      {"id": 18, "feedEntryId": 6, "userName": "Karim R.", "userInitials": "KR", "text": "Dangerous but fascinating!", "createdAt": 1234567907},
+      {"id": 19, "feedEntryId": 6, "userName": "Sarra K.", "userInitials": "SK", "text": "How close were you to this viper?", "createdAt": 1234567908},
+      {"id": 20, "feedEntryId": 6, "userName": "Mohamed A.", "userInitials": "MA", "text": "Sunrise photography at its best", "createdAt": 1234567909},
+      {"id": 21, "feedEntryId": 6, "userName": "Leila B.", "userInitials": "LB", "text": "Beautiful creature despite the danger", "createdAt": 1234567910},
+      {"id": 22, "feedEntryId": 6, "userName": "Fatima Z.", "userInitials": "FZ", "text": "Incredible nature documentation", "createdAt": 1234567911},
+      {"id": 23, "feedEntryId": 6, "userName": "Hassan M.", "userInitials": "HM", "text": "This is why I love EcoSnap", "createdAt": 1234567912},
+      {"id": 24, "feedEntryId": 6, "userName": "Noor S.", "userInitials": "NS", "text": "How did you spot it at sunrise?", "createdAt": 1234567913},
+      {"id": 25, "feedEntryId": 6, "userName": "Jamal K.", "userInitials": "JK", "text": "Amazing courage Amira!", "createdAt": 1234567914},
+      {"id": 26, "feedEntryId": 6, "userName": "Zainab M.", "userInitials": "ZM", "text": "This is one of the best posts here", "createdAt": 1234567915}
+    ]
   }
 ]
+
+
 
 
 

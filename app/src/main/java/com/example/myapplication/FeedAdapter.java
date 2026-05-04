@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -186,7 +187,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
             TextView userNameView = new TextView(context);
             userNameView.setText(comment.userName);
             userNameView.setTextSize(11);
-            userNameView.setTextStyle(android.graphics.Typeface.BOLD);
+            userNameView.setTypeface(null, Typeface.BOLD);
             userNameView.setTextColor(ContextCompat.getColor(context, R.color.text_primary));
 
             TextView commentTextView = new TextView(context);
@@ -206,11 +207,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         String likeText = likeCount > 0 ? likeCount + " " + (likeCount == 1 ? "Like" : "Likes") : "Like";
         button.setText(likeText);
         if (isLiked) {
-            button.setIcon(ContextCompat.getDrawable(button.getContext(), android.R.drawable.ic_menu_view));
-            button.setIconTint(ContextCompat.getColorStateList(button.getContext(), R.color.green_primary));
-            button.setTextColor(ContextCompat.getColor(button.getContext(), R.color.green_primary));
+            button.setIcon(ContextCompat.getDrawable(button.getContext(), android.R.drawable.ic_dialog_info));
+            button.setIconTint(ContextCompat.getColorStateList(button.getContext(), R.color.status_en));
+            button.setTextColor(ContextCompat.getColor(button.getContext(), R.color.status_en));
         } else {
-            button.setIcon(ContextCompat.getDrawable(button.getContext(), android.R.drawable.ic_menu_view));
+            button.setIcon(ContextCompat.getDrawable(button.getContext(), android.R.drawable.ic_dialog_info));
             button.setIconTint(ContextCompat.getColorStateList(button.getContext(), android.R.color.darker_gray));
             button.setTextColor(ContextCompat.getColor(button.getContext(), R.color.text_secondary));
         }
