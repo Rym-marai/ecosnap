@@ -24,11 +24,12 @@ public class FeedEntry {
     public boolean isLiked;
     public boolean isSaved;
     public int commentCount;
-    public int userBadgeLevel; // 0 = no badge, 1 = bronze, 2 = silver, 3 = gold
-    public String userBadgeTitle; // Last unlocked badge title (e.g., "Rare Find", "Mapper")
-
+    public int userBadgeLevel;
+    public String userBadgeTitle;
+    public String category; // Animals, Plants, Fungi, Others
+    
     @Ignore
-    public boolean isExpanded; // for UI state
+    public boolean isExpanded;
     @Ignore
-    public List<FeedComment> comments = new ArrayList<>(); // For storing comments
+    public List<FeedComment> comments = new ArrayList<>();
 }

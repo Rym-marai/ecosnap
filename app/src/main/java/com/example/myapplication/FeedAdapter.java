@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -125,9 +127,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         // Comment Button
         holder.btnComment.setText(entry.commentCount > 0 ? entry.commentCount + "" : "Comment");
         holder.btnComment.setOnClickListener(v -> {
-            if (onCommentClickListener != null) {
-                onCommentClickListener.onCommentClick(entry, holder);
-            }
+            // Scroll to comments section (can be done by scrolling parent RecyclerView)
         });
 
         // Share Button
@@ -147,6 +147,59 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
                 onSaveClickListener.onSaveClick(entry, holder);
             }
         });
+
+        // Display existing comments
+        displayComments(holder, entry, context);
+
+        // Handle new comment input
+        holder.btnPostComment.setOnClickListener(v -> {
+            String commentText = holder.etCommentInput.getText().toString().trim();
+            if (!commentText.isEmpty()) {
+                FeedComment newComment = new FeedComment(entry.id, "You", "YOU", commentText);
+                entry.comments.add(newComment);
+                entry.commentCount++;
+                holder.etCommentInput.setText("");
+                displayComments(holder, entry, context);
+                notifyItemChanged(position);
+            }
+        });
+    }
+
+    private void displayComments(FeedViewHolder holder, FeedEntry entry, Context context) {
+        holder.commentsContainer.removeAllViews();
+
+        if (entry.comments == null || entry.comments.isEmpty()) {
+            TextView emptyView = new TextView(context);
+            emptyView.setText("No comments yet");
+            emptyView.setTextSize(11);
+            emptyView.setTextColor(ContextCompat.getColor(context, R.color.text_hint));
+            emptyView.setPadding(0, 4, 0, 4);
+            holder.commentsContainer.addView(emptyView);
+            return;
+        }
+
+        for (FeedComment comment : entry.comments) {
+            LinearLayout commentView = new LinearLayout(context);
+            commentView.setOrientation(LinearLayout.VERTICAL);
+            commentView.setPadding(0, 8, 0, 8);
+
+            TextView userNameView = new TextView(context);
+            userNameView.setText(comment.userName);
+            userNameView.setTextSize(11);
+            userNameView.setTextStyle(android.graphics.Typeface.BOLD);
+            userNameView.setTextColor(ContextCompat.getColor(context, R.color.text_primary));
+
+            TextView commentTextView = new TextView(context);
+            commentTextView.setText(comment.text);
+            commentTextView.setTextSize(10);
+            commentTextView.setTextColor(ContextCompat.getColor(context, R.color.text_secondary));
+            commentTextView.setLineSpacing(1.2f, 1.2f);
+
+            commentView.addView(userNameView);
+            commentView.addView(commentTextView);
+
+            holder.commentsContainer.addView(commentView);
+        }
     }
 
     private void updateLikeIcon(MaterialButton button, boolean isLiked, int likeCount) {
@@ -190,7 +243,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
     static class FeedViewHolder extends RecyclerView.ViewHolder {
         TextView tvUsername, tvUserLocation, tvStatusBadge, tvSpeciesName, tvCaption;
         ImageView ivUserAvatar, ivSpeciesPhoto, ivUserBadge;
-        MaterialButton btnLike, btnComment, btnShare, btnSave;
+        MaterialButton btnLike, btnComment, btnShare, btnSave, btnPostComment;
+        EditText etCommentInput;
+        LinearLayout commentsContainer;
 
         public FeedViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -206,6 +261,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
             btnComment = itemView.findViewById(R.id.btnComment);
             btnShare = itemView.findViewById(R.id.btnShare);
             btnSave = itemView.findViewById(R.id.btnSave);
+            btnPostComment = itemView.findViewById(R.id.btnPostComment);
+            etCommentInput = itemView.findViewById(R.id.etCommentInput);
+            commentsContainer = itemView.findViewById(R.id.commentsContainer);
         }
     }
 }

@@ -16,7 +16,8 @@
     "isSaved": false,
     "commentCount": 3,
     "userBadgeLevel": 2,
-    "userBadgeTitle": "Explorer"
+    "userBadgeTitle": "Explorer",
+    "category": "Animals"
   },
   {
     "id": 2,
@@ -35,7 +36,8 @@
     "isSaved": false,
     "commentCount": 7,
     "userBadgeLevel": 3,
-    "userBadgeTitle": "Rare Find"
+    "userBadgeTitle": "Rare Find",
+    "category": "Animals"
   },
   {
     "id": 3,
@@ -54,7 +56,8 @@
     "isSaved": true,
     "commentCount": 2,
     "userBadgeLevel": 1,
-    "userBadgeTitle": "First Snap"
+    "userBadgeTitle": "First Snap",
+    "category": "Plants"
   },
   {
     "id": 5,
@@ -73,7 +76,8 @@
     "isSaved": true,
     "commentCount": 5,
     "userBadgeLevel": 3,
-    "userBadgeTitle": "Mapper"
+    "userBadgeTitle": "Mapper",
+    "category": "Plants"
   },
   {
     "id": 6,
@@ -92,9 +96,12 @@
     "isSaved": false,
     "commentCount": 9,
     "userBadgeLevel": 2,
-    "userBadgeTitle": "Explorer"
+    "userBadgeTitle": "Explorer",
+    "category": "Animals"
   }
 ]
+
+
 
 
 

@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class FeedFragment extends Fragment {
     private FeedAdapter adapter;
@@ -25,7 +23,7 @@ public class FeedFragment extends Fragment {
     private Spinner spinnerSpeciesFilter;
     private Spinner spinnerStatusFilter;
     private MaterialButton btnResetFilter;
-    private String selectedSpecies = "All Species";
+    private String selectedSpecies = "All Categories";
     private String selectedStatus = "All Status";
     private List<SaveCategory> categories = new ArrayList<>();
 
@@ -65,7 +63,7 @@ public class FeedFragment extends Fragment {
 
                 // Set up comment listener
                 adapter.setOnCommentClickListener((entry, holder) -> {
-                    showCommentDialog(entry, holder);
+                    // Comments are now handled inline in the adapter
                 });
 
                 // Setup filter spinners
@@ -73,7 +71,7 @@ public class FeedFragment extends Fragment {
 
                 // Reset filter button
                 btnResetFilter.setOnClickListener(v -> {
-                    selectedSpecies = "All Species";
+                    selectedSpecies = "All Categories";
                     selectedStatus = "All Status";
                     spinnerSpeciesFilter.setSelection(0);
                     spinnerStatusFilter.setSelection(0);
@@ -98,28 +96,26 @@ public class FeedFragment extends Fragment {
     private void setupFilterSpinners() {
         if (getContext() == null || allEntries == null) return;
 
-        // Get unique species from entries
-        Set<String> speciesSet = new HashSet<>();
-        speciesSet.add("All Species");
-        for (FeedEntry entry : allEntries) {
-            if (entry.speciesName != null) {
-                speciesSet.add(entry.speciesName);
-            }
-        }
-        List<String> speciesList = new ArrayList<>(speciesSet);
+        // Category list - updated to match Animals, Plants, Fungi, Others
+        List<String> categoryList = new ArrayList<>();
+        categoryList.add("All Categories");
+        categoryList.add("Animals");
+        categoryList.add("Plants");
+        categoryList.add("Fungi");
+        categoryList.add("Others");
 
-        // Get unique statuses
+        // Status list remains the same
         List<String> statusList = new ArrayList<>();
         statusList.add("All Status");
         statusList.add("LC");
         statusList.add("VU");
         statusList.add("EN");
 
-        // Setup species spinner
-        ArrayAdapter<String> speciesAdapter = new ArrayAdapter<>(
-                getContext(), android.R.layout.simple_spinner_item, speciesList);
-        speciesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSpeciesFilter.setAdapter(speciesAdapter);
+        // Setup category spinner (renamed from species)
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(
+                getContext(), android.R.layout.simple_spinner_item, categoryList);
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSpeciesFilter.setAdapter(categoryAdapter);
 
         // Setup status spinner
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<>(
@@ -127,7 +123,7 @@ public class FeedFragment extends Fragment {
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStatusFilter.setAdapter(statusAdapter);
 
-        // Species filter listener
+        // Category filter listener
         spinnerSpeciesFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -156,12 +152,12 @@ public class FeedFragment extends Fragment {
         filteredEntries.clear();
 
         for (FeedEntry entry : allEntries) {
-            boolean matchesSpecies = selectedSpecies.equals("All Species") || 
-                    (entry.speciesName != null && entry.speciesName.equals(selectedSpecies));
-            boolean matchesStatus = selectedStatus.equals("All Status") || 
+            boolean matchesCategory = selectedSpecies.equals("All Categories") ||
+                    (entry.category != null && entry.category.equals(selectedSpecies));
+            boolean matchesStatus = selectedStatus.equals("All Status") ||
                     (entry.conservationStatus != null && entry.conservationStatus.toUpperCase().equals(selectedStatus));
 
-            if (matchesSpecies && matchesStatus) {
+            if (matchesCategory && matchesStatus) {
                 filteredEntries.add(entry);
             }
         }
